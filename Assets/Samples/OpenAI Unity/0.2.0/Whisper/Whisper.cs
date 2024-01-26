@@ -21,6 +21,7 @@ namespace Samples.Whisper
         private bool isRecording;
         private float time;
         private OpenAIApi openai = new OpenAIApi();
+        private int batchSeconds = 2;
 
         private void Start()
         {
@@ -44,6 +45,41 @@ namespace Samples.Whisper
             PlayerPrefs.SetInt("user-mic-device-index", index);
         }
         
+        private async void RecordAndTranscribeLive() {
+            /*
+            time 0
+                graba frase por 2 segundos
+                palabra entrecortada
+                    gpt la infiere
+                frase completa se muestra
+            time 2
+            */
+            var index = PlayerPrefs.GetInt("user-mic-device-index");
+            
+            #if !UNITY_WEBGL
+            clip = Microphone.Start(dropdown.options[index].text, false, duration, 44100);
+            #endif
+
+            time += Time.deltaTime; 
+            if (time > batchSeconds) {
+                time = 0;
+            
+                #if !UNITY_WEBGL
+                Microphone.End(null);
+                #endif
+                
+                byte[] audio = SaveWav.Save(fileName, clip);
+                var req = new CreateAudioTranscriptionsRequest
+                {
+                    FileData = new FileData() {Data = audio, Name = "audio.wav"},
+                    // File = Application.persistentDataPath + "/" + fileName,
+                    Model = "whisper-1",
+                    Language = "es"
+                };
+                var transcription = await openai.CreateAudioTranscription(req);
+            }
+        }
+
         private void StartRecording()
         {
             isRecording = true;
@@ -79,9 +115,9 @@ namespace Samples.Whisper
             // message.text = res.Text;
 
             //--
-            string problem = "me estresa tener que dar el examen tan rápido porque no estudié";
+            // string problem = "me estresa tener que dar el examen tan rápido porque no estudié";
             // string solution = "me levantaré temprano para estudiar unas horitas más";//message.text;
-            string solution = "organizare el poco tiempo que me queda para estudiar y dare mi examen con lo que aprenda sabiendo que mas adelante me organizare mejor y dare un mejor examen";//message.text;
+            // string solution = "organizare el poco tiempo que me queda para estudiar y dare mi examen con lo que aprenda sabiendo que mas adelante me organizare mejor y dare un mejor examen";//message.text;
             string pool = "me estresa tener que dar el examen tan rápido porque no estudié. "+
                             "En la vida universitaria, el estrés es una compañía constante que se manifiesta de diversas maneras, a menudo desafiando la salud mental y emocional de los estudiantes. La carga académica, con su secuencia interminable de tareas, exámenes y proyectos, es uno de los principales generadores de ansiedad. La presión por rendir bien, mantener un promedio alto y enfrentar evaluaciones constantes puede ser abrumadora. La dimensión financiera también juega un papel crucial. Las matrículas elevadas, los gastos en libros y materiales, y la necesidad de cubrir los costos de vida, a menudo llevan a la inseguridad económica. La búsqueda de trabajos a tiempo parcial para sufragar gastos adicionales contribuye a la carga, ya que los estudiantes luchan por equilibrar las demandas laborales y académicas. La adaptación social en un entorno universitario puede convertirse en un desafío significativo. La presión por hacer conexiones, integrarse en grupos sociales y gestionar relaciones interpersonales se suma al estrés. La sensación de competencia y la necesidad de encajar pueden generar ansiedad social, especialmente en un contexto donde la comparación con los demás es común. Las expectativas familiares, muchas veces ligadas a la inversión financiera realizada en la educación universitaria, pueden generar una presión adicional. La necesidad de cumplir con las expectativas familiares y justificar el costo de la educación se convierte en un peso en los hombros de los estudiantes. La gestión del tiempo se presenta como un reto constante. La necesidad de equilibrar clases, estudios, trabajo y tiempo libre puede llevar a una sensación de agotamiento. La incapacidad para administrar eficientemente el tiempo puede contribuir al estrés y afectar negativamente la calidad de vida. El futuro incierto después de la universidad también añade preocupación. La toma de decisiones relacionadas con la carrera, la búsqueda de empleo y la transición a la vida laboral pueden generar inseguridad y ansiedad sobre el camino por venir. Las experiencias personales, como problemas familiares, desafíos de salud o dificultades en relaciones personales, pueden intensificar el estrés. Las preocupaciones personales se entrelazan con las demandas académicas y sociales, creando una carga emocional significativa. En resumen, la vida universitaria, aunque llena de oportunidades y crecimiento, no está exenta de tensiones. Los estudiantes enfrentan diariamente una amalgama de desafíos que incluyen la presión académica, las preocupaciones financieras, la adaptación social y la incertidumbre sobre el futuro. La gestión eficaz del estrés y el acceso a recursos de apoyo son cruciales para ayudar a los estudiantes a sobrellevar estas tensiones y prosperar durante su tiempo en la universidad.";
             var req = new CreateChatCompletionRequest
