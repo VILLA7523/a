@@ -1,0 +1,1051 @@
+fileFormatVersion: 2
+guid: bf9664af8ff5bd866ab2608c3da4e460
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: patricio_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c585878a8ea519ad4b511222d8abe076
+      internalID: -1622568115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2400
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd74f1d65a23980f7a0f8aabc9888687
+      internalID: -571014346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2400
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae10edfeeaa1b765e83fdabaf42adb79
+      internalID: 1534986853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2400
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 300337889c5e3560e8554a2cf883178b
+      internalID: -176556105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2400
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa4f399acf13770399c1990d543fd11e
+      internalID: -96750314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2400
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86d7d17d6ae4c6e56ace9064978b0884
+      internalID: 1495764361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2400
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a7a447d631f684a9eae0142b5900c0
+      internalID: 1235300025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4959cbb25ff187b1eb8163f2f25b3972
+      internalID: 742162952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c749c48e739b0133382aa7caea04af61
+      internalID: -2001449310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_9
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1920
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 979d99a9c1216fc2bb1c3e559d408d19
+      internalID: 774111775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_10
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1920
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a855ed5cfd9d429599723821c571c234
+      internalID: -757495812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_11
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1920
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8696475cdacfb0c88fc400ee999f32
+      internalID: 2078170233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_12
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1920
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff96aec122d7692f4a57f759c08b6aa7
+      internalID: -1086830743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_13
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1920
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6338c4530d792747fae1eca1223a7e55
+      internalID: -1704033721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9fc3e400c41fc4e0955e9e82d90806e
+      internalID: 2052002165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_15
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1440
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d9d8cfadff8706094163c1d58c6dab
+      internalID: -421553988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_16
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1440
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbd72a2c47760d88a0683122b0d0ad2
+      internalID: 785823959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_17
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1440
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ce1c493ab2be478b9db3956bd4dd9e4
+      internalID: -663551386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_18
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1440
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e993e7719a28755edb480dd1090bb4db
+      internalID: -356528170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_19
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1440
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6cdf1b5e6f54020fb4ca6b9278254b7
+      internalID: -343011063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_20
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1440
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d77c1eda5cb3cef180d14333a865116
+      internalID: 2028836188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee17a8c5947384fb9b934b28cf90e284
+      internalID: -1625072098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_22
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 614042744c18829b9a8147a92338d22a
+      internalID: -439320115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_23
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 960
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d72e45c918b59832b85812005f72ecc
+      internalID: 1220708098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_24
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 960
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69996287bf3b6ededbfbffd2dad5832f
+      internalID: 475888065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_25
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 960
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5508e9eb6158f366bbcdde6be7a28068
+      internalID: -1075946018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_26
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 960
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce8edcca75b3565f87b78e8bf72b194
+      internalID: 1928721560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_27
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 960
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4881b817aab88babdb860390f92b4899
+      internalID: 1462702816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 316d2e0be7ef97ecc82168449c04a28f
+      internalID: -36919444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 480
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1934ede5a3cc55f5ea7a33b298685b18
+      internalID: -1074456680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_30
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 480
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef9bdd2872be1cd28472aa61163e074
+      internalID: 2091115850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_31
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 480
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2adabd6b3744f7f9ab13406e59d2c80d
+      internalID: 1039609942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_32
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 480
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c315bbe5ba86ed88ad4291cbcb578a
+      internalID: -1570604675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_33
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 480
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8f2fa96928b510fa8e49e3d93210b3
+      internalID: 55872049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_34
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 480
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0883633cbfaabe987a2e2738f7dc04
+      internalID: -1299709003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abac202badb4ace05ab73796fa029624
+      internalID: 2112266086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_36
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2456a96e0d6725abcaa98084a57af634
+      internalID: -1932712564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_37
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00a6ae67bf6772f598a56f35a127d9d6
+      internalID: -1655037148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_38
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cfa208469896fc239ba33dcd4d18bb4
+      internalID: 237734171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_39
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4fd9961327c33e858c8a0edc70b3d55
+      internalID: -410281288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_40
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726786d8672b27d99bb669717296e0fd
+      internalID: -763731081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: patricio_41
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5e91118f400f91c9d6d9db95c66711
+      internalID: -1817952450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      patricio_0: -1622568115
+      patricio_1: -571014346
+      patricio_10: -757495812
+      patricio_11: 2078170233
+      patricio_12: -1086830743
+      patricio_13: -1704033721
+      patricio_14: 2052002165
+      patricio_15: -421553988
+      patricio_16: 785823959
+      patricio_17: -663551386
+      patricio_18: -356528170
+      patricio_19: -343011063
+      patricio_2: 1534986853
+      patricio_20: 2028836188
+      patricio_21: -1625072098
+      patricio_22: -439320115
+      patricio_23: 1220708098
+      patricio_24: 475888065
+      patricio_25: -1075946018
+      patricio_26: 1928721560
+      patricio_27: 1462702816
+      patricio_28: -36919444
+      patricio_29: -1074456680
+      patricio_3: -176556105
+      patricio_30: 2091115850
+      patricio_31: 1039609942
+      patricio_32: -1570604675
+      patricio_33: 55872049
+      patricio_34: -1299709003
+      patricio_35: 2112266086
+      patricio_36: -1932712564
+      patricio_37: -1655037148
+      patricio_38: 237734171
+      patricio_39: -410281288
+      patricio_4: -96750314
+      patricio_40: -763731081
+      patricio_41: -1817952450
+      patricio_5: 1495764361
+      patricio_6: 1235300025
+      patricio_7: 742162952
+      patricio_8: -2001449310
+      patricio_9: 774111775
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
