@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PiedraEscuchadora.unity
     guid: 17a650c6fb0927079805c1f5f24fb76b
+  - enabled: 1
+    path: Assets/Scenes/MensajesNegativos.unity
+    guid: 4f1530515ed539f439e87a4309e07389
   m_configObjects: {}

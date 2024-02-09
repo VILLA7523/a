@@ -13,7 +13,7 @@ namespace PiedraEscuchadora {
         [SerializeField] private Sprite recordButtonOff;
         [SerializeField] private Sprite recordButtonProcessing;
         [SerializeField] private TMPro.TextMeshProUGUI transcription;
-        
+        [SerializeField] private Image comicPanel;
         private readonly string microphoneName = "Microphone (Realtek(R) Audio)";
         private readonly float recordingMinutes = 2.5f;
         private AudioClip clip;
@@ -86,7 +86,7 @@ namespace PiedraEscuchadora {
                 recordButton.GetComponent<Image>().sprite = recordButtonOff;
                 recordButton.onClick.AddListener(StartRecording);
                 recording = false;
-            }
+            } 
         }
     }
 }

@@ -26,10 +26,5 @@ public class movePlayer : MonoBehaviour
         transform.position = posicionJug;
     }
 
-    private void FixedUpdate() {
-
-    }
-
-
 }
 
