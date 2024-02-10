@@ -276,7 +276,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000026703, y: -208}
+  m_AnchoredPosition: {x: 0.000026703, y: -70}
   m_SizeDelta: {x: 457.7894, y: 99.811}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &239212217
@@ -542,8 +542,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.7208, y: 49.906}
-  m_SizeDelta: {x: 371.2083, y: 99.811}
+  m_AnchoredPosition: {x: -0.00062943, y: 49.906}
+  m_SizeDelta: {x: 457.79, y: 99.811}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &279576020
 MonoBehaviour:
@@ -833,8 +833,8 @@ MonoBehaviour:
   m_text: "\xA1Hola! Soy Stone, tu amigo rocoso con un coraz\xF3n blando. Estoy aqu\xED
     para escuchar y ayudar. Espero que estes listo para desahogarte.\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1ad6fa32f954034a970e2d05672b1a2, type: 2}
+  m_sharedMaterial: {fileID: -6537689450259841235, guid: e1ad6fa32f954034a970e2d05672b1a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1036,8 +1036,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.7208, y: -336}
-  m_SizeDelta: {x: 371.2083, y: 99.811}
+  m_AnchoredPosition: {x: -0.00016785, y: -188}
+  m_SizeDelta: {x: 457.79, y: 99.811}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611474303
 MonoBehaviour:
@@ -2468,15 +2468,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: '>> Continuar'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283914071
-  m_fontColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+    rgba: 4284714752
+  m_fontColor: {r: 0, g: 0.5597484, b: 0.3872356, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

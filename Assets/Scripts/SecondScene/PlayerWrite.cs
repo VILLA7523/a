@@ -23,8 +23,9 @@ public class PlayerWrite : MonoBehaviour
         if (playerFigure.GetComponent<BoxCollider2D>().IsTouching(stone.GetComponent<BoxCollider2D>())) {
             hasCollided = true;
         }
-
-        if (hasCollided && stone.GetComponent<Rigidbody2D>().velocity.magnitude < 0.1f) {
+        if (hasCollided 
+        //stone.GetComponent<Rigidbody2D>().velocity.magnitude < 0.1f
+        ) {
             playerWrite.SetActive(true);
         } else {
             playerWrite.SetActive(false);

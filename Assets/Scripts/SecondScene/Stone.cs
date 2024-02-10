@@ -8,7 +8,6 @@ public class Stone : MonoBehaviour
 {
     [SerializeField] private TMPro.TextMeshPro stoneText;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (StressProblems.currentProblemIdx >= StressProblems.problems.Length) return;
@@ -17,7 +16,6 @@ public class Stone : MonoBehaviour
         stoneText.text = problem;
     }
 
-    // Update is called once per frame
     void Update()
     {
         

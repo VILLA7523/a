@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 namespace PiedraEscuchadora {
 
 public class RecordClip : MonoBehaviour
@@ -15,12 +15,12 @@ public class RecordClip : MonoBehaviour
     [SerializeField] private Button recordButton = null;
     [SerializeField] private Image viñetaPlayer = null;
     [SerializeField] private Image[] target = new Image[4];
+    [SerializeField] private Image contador = null;
+    
     private string[] negatives = new string[4];
     private OpenAIApi openai = new OpenAIApi();
     public static List<string> stresses = new List<string>();
     private string textTotal = "";
-
-    // type text
     public float typingSpeed = 0.1f; // Velocidad a la que aparecen las letras
     private TextMeshProUGUI textLabel; // Referencia al componente TextMeshProUGUI
     [SerializeField] private Image viñetaGuia;
@@ -42,7 +42,7 @@ public class RecordClip : MonoBehaviour
             target[i].gameObject.SetActive(false);
         }
         nextButton.gameObject.SetActive(false);
-        // //recordButton.interactable = false;
+        // recordButton.interactable = false;
         // recordButton.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.7f); 
     }
 
@@ -50,7 +50,7 @@ public class RecordClip : MonoBehaviour
         textLabel.text = ""; 
         StartCoroutine(TypeTextSequence());
         Debug.Log("termino");
-        // //recordButton.interactable = true;
+        // recordButton.interactable = true;
         // recordButton.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f); 
     }
 
@@ -75,6 +75,9 @@ public class RecordClip : MonoBehaviour
         yield return new WaitForSeconds(typingSpeed);
         
         yield return TypeText("te estresas?");
+        viñetaPlayer.gameObject.SetActive(true);
+        contador.gameObject.SetActive(true);
+
     }
 
     IEnumerator TypeText(string textToType)
@@ -116,7 +119,10 @@ public class RecordClip : MonoBehaviour
             target[current].gameObject.SetActive(true);
             tmpInputField.text = "";
             if(idx == limit) viñetaPlayer.gameObject.SetActive(false);
-            if(!ok) current = -1;
+            if(!ok)  {
+                contador.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = idx.ToString();
+                current = -1;
+            }
         } 
 
         if(idx >= 2) {
@@ -127,45 +133,12 @@ public class RecordClip : MonoBehaviour
 
     public async void Save() 
     {
-       bool ok = true;
-       while(ok == true) await SendIA();
-    }
-
-    private async Task<bool> SendIA() {
-        string transcriptionText = "";
         for(int i = 0 ; i < limit ; i++) {
-            transcriptionText += negatives[idx] + ',';
-        } 
-        var chatCompletion = await openai.CreateChatCompletion(
-            new CreateChatCompletionRequest {
-            Model = "gpt-3.5-turbo",
-            Messages = new List<ChatMessage>() {
-                new ChatMessage() {
-                    Role = "user",
-                    Content = "Identifica las oraciones negativas que generan estres y reractalo en 13 palabras con " +  transcriptionText + "en 4 oraciones de 15 palabras den siguiente",  
-                }
-            },});
-                
-          if (chatCompletion.Choices != null && chatCompletion.Choices.Count > 0) {
-            var message = chatCompletion.Choices[0].Message;
-            message.Content = message.Content.Trim();                
-            string stressesRaw = message.Content;
-            stressesRaw = stressesRaw.Replace("@", System.Environment.NewLine);
-            var pattern = @"\d\. (.*)(\n|$)";
-            var matches = Regex.Matches(stressesRaw, pattern);
-            foreach(Match match in matches) {
-              stresses.Add(match.Groups[1].Value);
-            }
-            string stressesLog = string.Join(", ", stresses);
-            Debug.Log("Pensamientos negativos sobre el estres: " + stressesLog);
-            return true;
-          } else {
-            Debug.Log("No text was generated from this prompt.");
-            return false;
-          }
+            stresses.Add(negatives[i]);
+        }
+        SceneManager.LoadScene("Loading");
     }
+
+   
 }
-
-
-
 }

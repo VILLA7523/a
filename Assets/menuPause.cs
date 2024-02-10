@@ -21,7 +21,6 @@ public class menuPause : MonoBehaviour
 
     public void pause() {
         ObjectMenuPause.SetActive(true);
-
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
     }
