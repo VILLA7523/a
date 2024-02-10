@@ -40,35 +40,6 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
         // string solution = "me voy a poner a preguntar a la gente si debo estresarme o no";
         string solution = playerWriteInputField.text;
         
-<<<<<<< HEAD
-        //string[] responses = {await Ask(problem, solution), await Ask(problem, solution)};
-        // var decision = responses.Aggregate(0, (result, response) => {
-        //     if (
-        //         (response[0] == 'N' ||
-        //         response[0] == 'n') &&
-        //         response[1] == 'o' 
-        //     ) {
-        //        return result - 1;
-        //     } else if (
-        //         (response[0] == 'S' ||
-        //         response[0] == 's') &&
-        //         (response[1] == 'i' ||
-        //         response[1] == 'í') 
-        //     ) {
-        //        return result + 1;
-        //     }
-		// 	return 0;
-		// });
-
-        var decision  = 2;
-
-        if (decision == 0) {
-            var response = await Ask(problem, solution);
-            decision = (response[0] == 'S' || response[0] == 's') ? 1 : -1;
-        }
-
-        if (decision > 0) {
-=======
         string[] responses = await Task.WhenAll(
             Enumerable.Repeat(
                 Ask(problem, solution),
@@ -95,7 +66,6 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
 
         if (decision >= 5) {
             // star.gameObject.SetActive(true);
->>>>>>> 1ac6f008980ad0cbf79a1e59fa417cd3bf18c557
             playerWriteInputField.text = "";
             stoneText.text = "";
 

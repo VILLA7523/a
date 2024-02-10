@@ -51,7 +51,6 @@ public class MovePlayer : MonoBehaviour
         if (StressProblems.currentProblemIdx >= StressProblems.problems.Length) {
           Vector3 newPosition = meta.transform.position;
           newPosition.x += 20.0f; 
-          newPosition.y = 
         }else if(posicionJug.x + 12.0f > stone.transform.position.x) {
           stone.gameObject.SetActive(true);
         }
