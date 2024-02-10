@@ -15,7 +15,7 @@ public class MovePlayerWrite : MonoBehaviour
     void Update()
     {
         this.gameObject.transform.position = new Vector2(
-            positionX*100+980,
+            posicionJug.x,
             this.gameObject.transform.position.y
         );
     }
