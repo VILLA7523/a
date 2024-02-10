@@ -103,14 +103,13 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
             }
         };
         var completionResponse = await openai.CreateChatCompletion(req);
-        if (completionResponse.Choices != null && completionResponse.Choices.Count > 0)
-        {
+        if (completionResponse.Choices != null && completionResponse.Choices.Count > 0) {
             var message = completionResponse.Choices[0].Message;
             message.Content = message.Content.Trim();
             
             result = message.Content;
         } else {
-            result = "No text was generated from this prompt";
+            result = "Text wasn't generated from this prompt";
         }
 
         return result;
