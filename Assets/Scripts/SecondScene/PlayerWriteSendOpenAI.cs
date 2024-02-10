@@ -40,6 +40,7 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
         // string solution = "me voy a poner a preguntar a la gente si debo estresarme o no";
         string solution = playerWriteInputField.text;
         
+<<<<<<< HEAD
         //string[] responses = {await Ask(problem, solution), await Ask(problem, solution)};
         // var decision = responses.Aggregate(0, (result, response) => {
         //     if (
@@ -67,6 +68,34 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
         }
 
         if (decision > 0) {
+=======
+        string[] responses = await Task.WhenAll(
+            Enumerable.Repeat(
+                Ask(problem, solution),
+                7
+            ).ToArray()
+        );
+        var decision = responses.Aggregate(0, (result, response) => {
+            if (
+                (response[0] == 'N' ||
+                response[0] == 'n') &&
+                response[1] == 'o' 
+            ) {
+               return result - 1;
+            } else if (
+                (response[0] == 'S' ||
+                response[0] == 's') &&
+                (response[1] == 'i' ||
+                response[1] == 'í') 
+            ) {
+               return result + 1;
+            }
+			return 0;
+		});
+
+        if (decision >= 5) {
+            // star.gameObject.SetActive(true);
+>>>>>>> 1ac6f008980ad0cbf79a1e59fa417cd3bf18c557
             playerWriteInputField.text = "";
             stoneText.text = "";
 
@@ -89,7 +118,7 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
             playerWriteInputField.text = "Podrías mejorar tu respuesta...";
         }
 
-        Debug.Log("Decision (>0 yes): " + decision);
+        Debug.Log("Decision (if >0 then yes): " + decision);
 
     }
 
@@ -115,20 +144,19 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
                 {
                     Role = "user",
                     Content = 
-                        "Hola, resume en un \"sí\" o un \"no\", si la siguiente frase \"" + solution +
+                        "Hola, resume en un \"sí\" o un \"no\" si la siguiente frase \"" + solution +
                         "\" " + "alivia el estrés de esta frase \"" + problem + "\".",              
                 }
             }
         };
         var completionResponse = await openai.CreateChatCompletion(req);
-        if (completionResponse.Choices != null && completionResponse.Choices.Count > 0)
-        {
+        if (completionResponse.Choices != null && completionResponse.Choices.Count > 0) {
             var message = completionResponse.Choices[0].Message;
             message.Content = message.Content.Trim();
             
             result = message.Content;
         } else {
-            result = "No text was generated from this prompt";
+            result = "Text wasn't generated from this prompt";
         }
 
         return result;
