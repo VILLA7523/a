@@ -30,8 +30,12 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
         if (StressProblems.currentProblemIdx >= StressProblems.problems.Length) return;
         string problem = StressProblems.problems[StressProblems.currentProblemIdx];
 
+        Debug.Log("StressProblems.currentProblemIdx: " + StressProblems.currentProblemIdx);
+
+        // string solution = "organizare el poco tiempo que me queda para estudiar y dare mi examen con lo que aprenda sabiendo que mas adelante me organizare mejor y dare un mejor examen";
+        // string solution = "me voy a poner a preguntar a la gente si debo estresarme o no";
+        string solution = playerWriteInputField.text;
         var decision = 7;
-        // string solution = playerWriteInputField.text;
         // string[] responses = await Task.WhenAll(
         //     Enumerable.Repeat(
         //         Ask(problem, solution),
