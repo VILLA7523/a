@@ -97,7 +97,7 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
                 {
                     Role = "user",
                     Content = 
-                        "Hola, resume en un \"sí\" o un \"no\", si la siguiente frase \"" + solution +
+                        "Hola, resume en un \"sí\" o un \"no\" si la siguiente frase \"" + solution +
                         "\" " + "alivia el estrés de esta frase \"" + problem + "\".",              
                 }
             }
