@@ -32,7 +32,15 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
         // string solution = "me voy a poner a preguntar a la gente si debo estresarme o no";
         string solution = playerWriteInputField.text;
         
-        string[] responses = {await Ask(problem, solution), await Ask(problem, solution)};
+        string[] responses = await Task.WhenAll(new[] {
+            Ask(problem, solution),
+            Ask(problem, solution),
+            Ask(problem, solution),
+            Ask(problem, solution),
+            Ask(problem, solution),
+            Ask(problem, solution),
+            Ask(problem, solution),
+        });
         var decision = responses.Aggregate(0, (result, response) => {
             if (
                 (response[0] == 'N' ||
@@ -51,11 +59,6 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
 			return 0;
 		});
 
-        if (decision == 0) {
-            var response = await Ask(problem, solution);
-            decision = (response[0] == 'S' || response[0] == 's') ? 1 : -1;
-        }
-
         if (decision > 0) {
             // star.gameObject.SetActive(true);
             playerWriteInputField.text = "";
@@ -71,7 +74,7 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
             playerWriteInputField.text = "Podrías mejorar tu respuesta...";
         }
 
-        Debug.Log("Decision (>0 yes): " + decision);
+        Debug.Log("Decision (if >0 then yes): " + decision);
 
     }
 
