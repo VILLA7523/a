@@ -97,7 +97,7 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
             "La segunda pregunta es ¿la frase \"" + solution + "\" representa lo que realmente se quiere decir?. " +
             "La tercera pregunta es ¿la frase \"" + solution + "\" representa algo que sinceramente creemos que se dará en el futuro?. " +
             "Ahora, cambia los \"sí\" por el número 1 y los \"no\" por el número 0. Dime cuánto suman tus respuestas." +
-            "Si la suma es menor a 3 porfa dame un resumen de 30 palabras de por qué la frase \"" + solution + "\" no alivia el estrés," +
+            "Si la suma es menor a 3 porfa dame un resumen de 30 palabras de ¿por qué la frase \"" + solution + "\" no alivia el estrés?," +
                 "inicia el resumen con la palabra \"RESUMEN\". " + 
             "Si la suma es 3 no me hagas el resumen porfa.";
         Debug.Log("prompt: " + prompt);
