@@ -12,53 +12,51 @@ using static StressProblems;
 public class PlayerWriteSendOpenAI : MonoBehaviour
 {
     [SerializeField] Button sendButton;
-    [SerializeField] private TMPro.TMP_InputField playerWriteInputField;
-    [SerializeField] private TMPro.TextMeshPro stoneText;
+    [SerializeField] TMPro.TMP_InputField playerWriteInputField;
+    [SerializeField] TMPro.TextMeshPro stoneText;
     [SerializeField] GameObject[] stars;
-
     [SerializeField] GameObject stone = null , meta = null , writer;
-    private int idx = 0;
-    private OpenAIApi openai = new OpenAIApi();
-
+    [SerializeField] GameObject feedback;
+    
+    int idx = 0;
+    OpenAIApi openai = new OpenAIApi();
+    int badAnswers;
+    int maxBadAnswers = 1;
+    string forFeedback;
     
     void Start()
     {
+        badAnswers = 0;
+        feedback.SetActive(false);
+
         sendButton.GetComponent<Button>().onClick.AddListener(Send);
+        feedback.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(CloseFeedback);
     }
 
     async void Send() {
         if (StressProblems.currentProblemIdx >= StressProblems.problems.Length) return;
-        string problem = StressProblems.problems[StressProblems.currentProblemIdx];
-
         Debug.Log("StressProblems.currentProblemIdx: " + StressProblems.currentProblemIdx);
 
+        string problem = StressProblems.problems[StressProblems.currentProblemIdx];
         string solution = playerWriteInputField.text;
-    
-        // string[] responses = await Task.WhenAll(
-        //     Enumerable.Repeat(
-        //         Ask(problem, solution),
-        //         7
-        //     ).ToArray()
-        // );
-        // var decision = responses.Aggregate(0, (result, response) => {
-        //     if (
-        //         (response[0] == 'N' ||
-        //         response[0] == 'n') &&
-        //         response[1] == 'o' 
-        //     ) {
-        //        return result - 1;
-        //     } else if (
-        //         (response[0] == 'S' ||
-        //         response[0] == 's') &&
-        //         (response[1] == 'i' ||
-        //         response[1] == 'í') 
-        //     ) {
-        //        return result + 1;
-        //     }
-		// 	return 0;
-		// });
-        var decision = 7;
-        if (decision >= 5) {
+        string response = await Ask(problem, solution);
+
+        bool responseIsAccepted;
+        var splittedResponse = response.Split("RESUMEN:");
+        if (splittedResponse.Length == 2) {
+            forFeedback = splittedResponse[1];
+            responseIsAccepted = false;
+        } else {
+            responseIsAccepted = true;
+        }
+
+        Debug.Log("problem: " + problem);
+        Debug.Log("solution: " + solution);
+        Debug.Log("chatGPT response\n: " + response);
+        Debug.Log("responseIsAccepted: " + responseIsAccepted);
+
+        if (responseIsAccepted) {
+            // star.gameObject.SetActive(true);
             playerWriteInputField.text = "";
             problem = StressProblems.problems[StressProblems.currentProblemIdx];
             Vector3 newPosition = stone.transform.position;
@@ -79,13 +77,29 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
             //star.GetComponentInChildren<TextMeshPro>().text = motivaciones[idx++];
         } else {
             playerWriteInputField.text = "Podrías mejorar tu respuesta...";
-        }
-        Debug.Log("Decision (if >0 then yes): " + decision);
 
+            badAnswers++;
+            if (badAnswers == maxBadAnswers) {
+                badAnswers = 0;
+                feedback.SetActive(true);
+                feedback.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = forFeedback;
+            }
+        }
     }
 
     async Task<string> Ask (string problem, string solution) {
-        string result;
+        string prompt = 
+            "Hola, porfa, te voy a hacer tres preguntas, repóndeme con un \"sí\" o un \"no\" la respuesta de cada una. " +
+            "La primera pregunta es: ¿la frase \"" + solution + "\" alivia el estrés de la frase \"" + problem + "? " +
+            "La segunda pregunta es ¿la frase \"" + solution + "\" representa lo que realmente se quiere decir?. " +
+            "La tercera pregunta es ¿la frase \"" + solution + "\" representa algo que sinceramente creemos que se dará en el futuro?. " +
+            "Ahora, cambia los \"sí\" por el número 1 y los \"no\" por el número 0. Dime cuánto suman tus respuestas." +
+            "Si la suma es menor a 3 porfa dame un resumen de 30 palabras de ¿por qué la frase \"" + solution + "\" no alivia el estrés?," +
+                "inicia el resumen con la palabra \"RESUMEN\". " + 
+            "Si la suma es 3 no me hagas el resumen porfa.";
+        Debug.Log("prompt: " + prompt);
+
+        string response;
         var req = new CreateChatCompletionRequest {
             Model = "gpt-3.5-turbo",
             Messages = new List<ChatMessage>()
@@ -93,9 +107,7 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
                 new ChatMessage()
                 {
                     Role = "user",
-                    Content = 
-                        "Hola, resume en un \"sí\" o un \"no\" si la siguiente frase \"" + solution +
-                        "\" " + "alivia el estrés de esta frase \"" + problem + "\".",              
+                    Content = prompt
                 }
             }
         };
@@ -104,11 +116,15 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
             var message = completionResponse.Choices[0].Message;
             message.Content = message.Content.Trim();
             
-            result = message.Content;
+         response = message.Content;
         } else {
-            result = "Text wasn't generated from this prompt";
+         response = "Text wasn't generated from this prompt";
         }
 
-        return result;
+        return response;
+    }
+
+    void CloseFeedback() {
+        feedback.SetActive(false);
     }
 }
