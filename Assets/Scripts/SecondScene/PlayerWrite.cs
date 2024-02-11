@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerWrite : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class PlayerWrite : MonoBehaviour
         playerWrite.SetActive(false);
     }
 
-    // Update is called once per frame
+    // Update lled once per frame
     void Update()
     {
         if (playerFigure.GetComponent<BoxCollider2D>().IsTouching(stone.GetComponent<BoxCollider2D>())) {
@@ -25,13 +26,16 @@ public class PlayerWrite : MonoBehaviour
         }else {
             hasCollided = false;
         }
-        if (hasCollided 
-        //stone.GetComponent<Rigidbody2D>().velocity.magnitude < 0.1f
-        ) {
+        if (hasCollided) {
             playerWrite.SetActive(true);
         } else {
             playerWrite.SetActive(false);
         }
     }
+
+    public void changescene(string nameMenu) {
+        SceneManager.LoadScene(nameMenu);
+    }
+    
 
 }
