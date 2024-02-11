@@ -30,6 +30,7 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
         feedback.SetActive(false);
 
         sendButton.GetComponent<Button>().onClick.AddListener(Send);
+        feedback.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(CloseFeedback);
     }
 
     async void Send() {
@@ -84,6 +85,7 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
 
             badAnswers++;
             if (badAnswers == maxBadAnswers) {
+                badAnswers = 0;
                 feedback.SetActive(true);
                 feedback.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = forFeedback;
             }
@@ -125,5 +127,9 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
         }
 
         return response;
+    }
+
+    void CloseFeedback() {
+        feedback.SetActive(false);
     }
 }
