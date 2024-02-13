@@ -76,27 +76,22 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
         if (decision >= 5) {
             // star.gameObject.SetActive(true);
             playerWriteInputField.text = "";
-            stoneText.text = "";
-
-            StressProblems.currentProblemIdx++;
-
-            stone.gameObject.SetActive(false);
-            
-            if (StressProblems.currentProblemIdx >= StressProblems.problems.Length) return;
             problem = StressProblems.problems[StressProblems.currentProblemIdx];
-            stoneText.text = problem;
             Vector3 newPosition = stone.transform.position;
+            stars[idx].transform.position = newPosition;
+            stoneText.text = problem;
             newPosition.x += 20.0f; 
             newPosition.y = 8.9f;
             stone.transform.position = newPosition; 
-            stars[idx].transform.position = stone.transform.position;
+            stone.gameObject.SetActive(false);
             stars[idx].gameObject.SetActive(true);
             idx++;
             
             newPosition = meta.transform.position;
-            newPosition.x += 10.0f;
-            writer.gameObject.SetActive(false);
+            newPosition.x += 6.0f;
             meta.transform.position = newPosition;
+            writer.gameObject.SetActive(false);
+            StressProblems.currentProblemIdx++;
             //star.GetComponentInChildren<TextMeshPro>().text = motivaciones[idx++];
         } else {
             playerWriteInputField.text = "Podrías mejorar tu respuesta...";

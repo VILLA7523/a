@@ -16,6 +16,14 @@ public class MovePlayer : MonoBehaviour
     public static Vector3 posicionJug;
     private Animator animator;
     private float movcurr;
+    private bool finish = false;
+    public Vector2 targetPosition = new Vector2(10, 5); // Punto objetivo
+    public float moveSpeed = 5f; // Velocidad de movimiento
+    [SerializeField] GameObject meta;
+
+    public GameObject ObjectMenuPause;
+
+
     private void Start()
     {
       rb2D = GetComponent<Rigidbody2D>();   
@@ -26,6 +34,7 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+      if(finish == false) {
         float movementx = Input.GetKey(KeyCode.LeftArrow) ? -1 : Input.GetKey(KeyCode.RightArrow) ? 1 : 0;
         if(movementx == 0)  { 
           animator.enabled = false;
@@ -40,11 +49,24 @@ public class MovePlayer : MonoBehaviour
         if(posicionJug.x > -10.0f) {
           transform.position = posicionJug;
           positionX = posicionJug.x;
-          
         }
         
         if (StressProblems.currentProblemIdx < StressProblems.problems.Length && (posicionJug.x + 13.7f) > stone.transform.position.x) {
           stone.gameObject.SetActive(true);
         }
+
+        if(posicionJug.x >= meta.transform.position.x) {
+          finish = true;
+          
+        }
+
+      }else {
+        animator.enabled  = false;
+         ObjectMenuPause.SetActive(true);
+      }
+
     } 
+
+
+
 }
