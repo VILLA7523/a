@@ -39,23 +39,41 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
 
         string problem = StressProblems.problems[StressProblems.currentProblemIdx];
         string solution = playerWriteInputField.text;
-        string response = await Ask(problem, solution);
-
-        bool responseIsAccepted;
-        var splittedResponse = response.Split("RESUMEN:");
-        if (splittedResponse.Length == 2) {
-            forFeedback = splittedResponse[1];
-            responseIsAccepted = false;
-        } else {
-            responseIsAccepted = true;
-        }
+        
+        string[] responses = await Task.WhenAll(
+            Ask(problem, solution),
+            Ask(problem, solution),
+            Ask(problem, solution),
+            Ask(problem, solution),
+            Ask(problem, solution),
+            Ask(problem, solution),
+            Ask(problem, solution),
+            Ask(problem, solution, true)
+        );
+    
+        var decision = responses.Aggregate(0, (result, response) => {
+            if (
+                (response[0] == 'N' ||
+                response[0] == 'n') &&
+                response[1] == 'o' 
+            ) {
+                return result - 1;
+            } else if (
+                (response[0] == 'S' ||
+                response[0] == 's') &&
+                (response[1] == 'i' ||
+                response[1] == 'í') 
+            ) {
+                return result + 1;
+            }
+			return 0;
+		});
 
         Debug.Log("problem: " + problem);
         Debug.Log("solution: " + solution);
-        Debug.Log("chatGPT response\n: " + response);
-        Debug.Log("responseIsAccepted: " + responseIsAccepted);
+        Debug.Log("decision: " + decision);
 
-        if (responseIsAccepted) {
+        if (decision >= 5) {
             // star.gameObject.SetActive(true);
             playerWriteInputField.text = "";
             stoneText.text = "";
@@ -87,24 +105,19 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
             if (badAnswers == maxBadAnswers) {
                 badAnswers = 0;
                 feedback.SetActive(true);
-                feedback.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = forFeedback;
+                feedback.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = responses[7];
             }
         }
     }
 
-    async Task<string> Ask (string problem, string solution) {
-        string prompt = 
-            "Hola, porfa, te voy a hacer tres preguntas, repóndeme con un \"sí\" o un \"no\" la respuesta de cada una. " +
-            "La primera pregunta es: ¿la frase \"" + solution + "\" alivia el estrés de la frase \"" + problem + "? " +
-            "La segunda pregunta es ¿la frase \"" + solution + "\" representa lo que realmente se quiere decir?. " +
-            "La tercera pregunta es ¿la frase \"" + solution + "\" representa algo que sinceramente creemos que se dará en el futuro?. " +
-            "Ahora, cambia los \"sí\" por el número 1 y los \"no\" por el número 0. Dime cuánto suman tus respuestas." +
-            "Si la suma es menor a 3 porfa dame un resumen de 30 palabras de ¿por qué la frase \"" + solution + "\" no alivia el estrés?," +
-                "inicia el resumen con la palabra \"RESUMEN\". " + 
-            "Si la suma es 3 no me hagas el resumen porfa.";
-        Debug.Log("prompt: " + prompt);
+    async Task<string> Ask (string problem, string solution, bool feedback = false) {
+        var prompt = "Hola, resume en un \"sí\" o un \"no\" si la siguiente frase \"" + solution +
+                        "\" " + "alivia el estrés de esta frase \"" + problem + "\".";
+        if (feedback) {
+            prompt = "Hola, dime en 30 palabras ¿por qué la frase \"" + solution + "\" no alivia el estrés de la frase \"" + problem + "\"?";
+        }
 
-        string response;
+        string result;
         var req = new CreateChatCompletionRequest {
             Model = "gpt-3.5-turbo",
             Messages = new List<ChatMessage>()
@@ -112,7 +125,7 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
                 new ChatMessage()
                 {
                     Role = "user",
-                    Content = prompt
+                    Content = prompt,              
                 }
             }
         };
@@ -121,12 +134,12 @@ public class PlayerWriteSendOpenAI : MonoBehaviour
             var message = completionResponse.Choices[0].Message;
             message.Content = message.Content.Trim();
             
-         response = message.Content;
+            result = message.Content;
         } else {
-         response = "Text wasn't generated from this prompt";
+            result = "Text wasn't generated from this prompt";
         }
 
-        return response;
+        return result;
     }
 
     void CloseFeedback() {
